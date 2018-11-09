@@ -4,12 +4,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./index.js",
   output: {
-    path: path.join(__dirname, "/bundle"),
+    path: path.resolve(__dirname, "bundle"),
     filename: "index_bundle.js"
   },
   devServer: {
     inline: true,
-    port: 8080
+    port: 8081
   },
   module: {
     rules: [
@@ -17,7 +17,7 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: "babel-loader",
-        query: {
+        options: {
           presets: ["@babel/preset-env", "@babel/preset-react"]
         }
       }
