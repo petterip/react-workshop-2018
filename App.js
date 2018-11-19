@@ -4,11 +4,11 @@ class App extends Component {
     super(props);
     this.state = {
       newItemValue: "New item",
-      items: {
-        "item-1": "Hammer",
-        "item-2": "Nails",
-        "item-3": "Stuff"
-      }
+      items: [
+        { id: "item-1", name: "Hammer" },
+        { id: "item-2", name: "Drill" },
+        { id: "item-3", name: "Nails 'n' stuff " }
+      ]
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -18,9 +18,10 @@ class App extends Component {
   addItem() {
     let timestamp = new Date().getTime();
     let key = "item-" + timestamp;
+    let newItem = { id: "item-" + timestamp, name: this.state.newItemValue };
 
     this.setState({
-      items: { ...this.state.items, [key]: this.state.newItemValue }
+      items: [...this.state.items, newItem]
     });
   }
 
@@ -43,10 +44,10 @@ class App extends Component {
   }
 }
 
-const StorageList = ({ list }) => (
+const StorageList = ({ list, deleteItemAction }) => (
   <ul>
-    {Object.keys(list).map(key => (
-      <Item key={key} item={list[key]} />
+    {list.map(item => (
+      <Item key={item.id} item={item} />
     ))}
   </ul>
 );
@@ -69,6 +70,6 @@ const AddItemButton = ({ buttonAction }) => (
   </button>
 );
 
-const Item = ({ item }) => <li>{item}</li>;
+const Item = ({ item, deleteItemAction }) => <li>{item.name}</li>;
 
 export default App;
