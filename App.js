@@ -4,7 +4,11 @@ class App extends Component {
     super(props);
     this.state = {
       newItemValue: "New item",
-      items: ["Hammer", "Nails", "Stuff"]
+      items: {
+        "item-1": "Hammer",
+        "item-2": "Nails",
+        "item-3": "Stuff"
+      }
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -12,8 +16,11 @@ class App extends Component {
   }
 
   addItem() {
+    let timestamp = new Date().getTime();
+    let key = "item-" + timestamp;
+
     this.setState({
-      items: [...this.state.items, this.state.newItemValue]
+      items: { ...this.state.items, [key]: this.state.newItemValue }
     });
   }
 
@@ -38,8 +45,8 @@ class App extends Component {
 
 const StorageList = ({ list }) => (
   <ul>
-    {list.map(item => (
-      <Item key={item} item={item} />
+    {Object.keys(list).map(key => (
+      <Item key={key} item={list[key]} />
     ))}
   </ul>
 );
