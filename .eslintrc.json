@@ -1,0 +1,18 @@
+{
+  "extends": ["eslint:recommended", "standard-react"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "no-console": "off",
+    "comma-dangle": ["error", "never"]
+  }
+}

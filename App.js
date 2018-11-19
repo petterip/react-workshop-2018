@@ -11,11 +11,11 @@ class App extends Component {
     this.addItem = this.addItem.bind(this);
   }
 
-  addItem = () => {
+  addItem() {
     this.setState({
       items: [...this.state.items, this.state.newItemValue]
     });
-  };
+  }
 
   handleChange(event) {
     this.setState({ newItemValue: event.target.value });
