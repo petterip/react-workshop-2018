@@ -1,18 +1,32 @@
 {
-  "extends": ["eslint:recommended", "standard-react"],
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "standard-react",
+    "plugin:prettier/recommended",
+    "prettier/react",
+    "prettier/standard"
+  ],
   "parserOptions": {
-    "ecmaVersion": 2018,
     "ecmaFeatures": {
       "jsx": true
     },
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "prettier"],
   "rules": {
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "never"],
-    "no-console": "off",
     "comma-dangle": ["error", "never"]
+  },
+  "globals": {
+    "console": false,
+    "window": false,
+    "document": false,
+    "navigator": false
   }
 }
