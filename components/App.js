@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
 
-import NewItemForm from './components/NewItemForm'
-import StorageList from './components/StorageList'
+import NewItemForm from './NewItemForm'
+import StorageList from './StorageList'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       newItemValue: '',
-      items: [{ id: 'item-1', name: 'Hammer' }, { id: 'item-2', name: 'Drill' }, { id: 'item-3', name: "Nails 'n stuff" }]
+      items: [
+        { id: 'item-1', name: 'Hammer' },
+        { id: 'item-2', name: 'Drill' },
+        { id: 'item-3', name: "Nails 'n stuff" }
+      ]
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -45,8 +49,15 @@ class App extends Component {
     return (
       <div>
         <h1>Storage Manager</h1>
-        <StorageList list={this.state.items} deleteItemAction={this.deleteItemAction} />
-        <NewItemForm addNewItemAction={this.addItem} newItemValue={this.state.newItemValue} handleChange={this.handleChange} />
+        <StorageList
+          list={this.state.items}
+          deleteItemAction={this.deleteItemAction}
+        />
+        <NewItemForm
+          addNewItemAction={this.addItem}
+          newItemValue={this.state.newItemValue}
+          handleChange={this.handleChange}
+        />
       </div>
     )
   }
