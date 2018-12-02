@@ -1,12 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import Item from './Item'
 
-const StorageList = ({ list, deleteItemAction }) => (
+const StorageList = ({ list }) => (
   <ul>
     {list.map(item => (
-      <Item key={item.id} deleteItemAction={deleteItemAction} item={item} />
+      <Item key={item.id} item={item} />
     ))}
   </ul>
 )
 
-export default StorageList
+function mapStateToProps(state) {
+  return { list: state.items }
+}
+
+export default connect(mapStateToProps)(StorageList)

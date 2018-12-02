@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { deleteItemAction } from '../actions'
 
 const Item = ({ item, deleteItemAction }) => (
   <li>
@@ -6,4 +8,11 @@ const Item = ({ item, deleteItemAction }) => (
   </li>
 )
 
-export default Item
+const actionsCreators = {
+  deleteItemAction
+}
+
+export default connect(
+  null,
+  actionsCreators
+)(Item)
