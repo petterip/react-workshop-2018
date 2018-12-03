@@ -1,8 +1,8 @@
 // Action creator for addItem
-export const addItemAction = newItemValue => {
+export const addItemAction = (name, quantity) => {
   const timestamp = new Date().getTime()
   const key = 'item-' + timestamp
-  const newItem = { id: key + timestamp, name: newItemValue }
+  const newItem = { id: key + timestamp, name, quantity }
 
   return {
     type: 'ADD_ITEM',
@@ -10,7 +10,7 @@ export const addItemAction = newItemValue => {
   }
 }
 
-// TODO: Action creator for deleteItem
+// Action creator for deleteItem
 export const deleteItemAction = id => {
   return {
     type: 'DELETE_ITEM',

@@ -4,7 +4,7 @@ import { deleteItemAction } from '../actions'
 
 const Item = ({ item, deleteItemAction }) => (
   <li>
-    {item.name} - <button onClick={() => deleteItemAction(item.id)}>Delete</button>
+    {item.name}: {item.quantity} pieces - <button onClick={() => deleteItemAction(item.id)}>Delete</button>
   </li>
 )
 
