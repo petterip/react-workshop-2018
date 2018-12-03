@@ -24,7 +24,7 @@ class App extends Component {
   addItem() {
     const timestamp = new Date().getTime()
     const key = 'item-' + timestamp
-    const newItem = { id: key + timestamp, name: this.state.newItemValue }
+    const newItem = { id: key, name: this.state.newItemValue }
 
     this.setState({
       items: [...this.state.items, newItem]
@@ -49,10 +49,7 @@ class App extends Component {
     return (
       <div>
         <h1>Storage Manager</h1>
-        <StorageList
-          list={this.state.items}
-          deleteItemAction={this.deleteItemAction}
-        />
+        <StorageList list={this.state.items} deleteItemAction={this.deleteItemAction} />
         <NewItemForm
           addNewItemAction={this.addItem}
           newItemValue={this.state.newItemValue}
