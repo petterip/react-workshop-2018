@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux'
 
-const initialState = [{ id: 'item-1', name: 'Hammer' }, { id: 'item-2', name: 'Drill' }, { id: 'item-3', name: "Nails 'n stuff" }]
+const initialState = [
+  { id: 'item-1', name: 'Hammer' },
+  { id: 'item-2', name: 'Drill' },
+  { id: 'item-3', name: "Nails 'n stuff" }
+]
 
 // TODO: Reducer for items
 function items(state = initialState, action) {

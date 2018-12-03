@@ -2,7 +2,7 @@
 export const addItemAction = newItemValue => {
   const timestamp = new Date().getTime()
   const key = 'item-' + timestamp
-  const newItem = { id: key + timestamp, name: newItemValue }
+  const newItem = { id: key, name: newItemValue }
 
   return {
     type: 'ADD_ITEM',
